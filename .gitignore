@@ -1,5 +1,2 @@
 #Virtual Environment
 venv
-
-#Database
-db.sqlite3
