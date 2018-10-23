@@ -1,0 +1,87 @@
+{% extends "base.html" %} 
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+<div class="position-relative">
+        <!-- Hero for FREE version -->
+        <section class="section section-lg section-hero section-shaped">
+          <!-- Background circles -->
+          <div class="shape shape-style-1 shape-default">
+            <span class="span-150"></span>
+            <span class="span-50"></span>
+            <span class="span-50"></span>
+            <span class="span-75"></span>
+            <span class="span-100"></span>
+            <span class="span-75"></span>
+            <span class="span-50"></span>
+            <span class="span-100"></span>
+            <span class="span-50"></span>
+            <span class="span-100"></span>
+          </div>
+
+          
+
+        <div class="container pt-lg-md">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+            <div class="card bg-secondary shadow border-0">
+                <div class="card-body px-lg-5 py-lg-5">
+                <div class="text-center text-muted mb-4">
+                    <small>Enter the details of missing person</small>
+                </div>
+                
+                
+                <form method="GET">
+                    
+                    {% for field in form.visible_fields %}
+                        <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                            </div>
+                            {% render_field field placeholder=field.label class="form-control" initial=field.type %}
+                        </div>
+                        </div>
+                        {% for error in field.errors %}
+                        <p style="color: #ff0062">{{ errror }}</p>
+                        {% endfor %}
+                    {% endfor %}
+
+
+
+                    <div class="text-center">
+                    <button type="submit" class="btn btn-primary my-4">Find</button>
+                    </div>
+
+                                    
+                    {% if form.non_field_errors %}
+                    <div class="non-field-errors text-center">
+                        {% for error in form.non_field_errors %}
+                        <span style="color:#ff0062; font-size:14px" class="form-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                </form>
+                
+
+                
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+
+          <!-- SVG separator -->
+          <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+          </div>
+        </section>
+</div>
+
+
+{% endblock %}

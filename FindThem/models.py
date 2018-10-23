@@ -3,13 +3,13 @@ from django.db import models, migrations
 
 class Disaster(models.Model):
     DISASTERS = (
-        ('drought', 'DROUGHT'),
-        ('avalanche', 'AVALANCHE'),
-        ('wildfire', 'WILDFIRE'),
-        ('flood', 'FLOOD'),
-        ('earthquake', 'EARTHQUAKE'),
-        ('tsunami', 'TSUNAMI'),
-        ('storm', 'STORMS'),
+        ('drought', 'Drought'),
+        ('avalanche', 'Avalanche'),
+        ('wildfire', 'Wildfire'),
+        ('flood', 'Flood'),
+        ('earthquake', 'Earthquake'),
+        ('tsunami', 'Tsunami'),
+        ('storm', 'Storm'),
     )
     name = models.CharField(max_length=30,null=True)
     image = models.ImageField(upload_to='static/images/disasters',
@@ -18,44 +18,47 @@ class Disaster(models.Model):
                              blank=True)
     state = models.CharField(max_length=30, null=True)
     description = models.CharField(max_length=50, null=True)
-    type = models.CharField(max_length=2, choices=DISASTERS, null=False)
-    date_started = models.DateField(null=False)
+    type = models.CharField(max_length=30, choices=DISASTERS)
+    date_started = models.DateField()
     #input_formats=["%B %Y"], 
+
+    def __str__(self):
+        return self.name
 
 class Person(models.Model):
     BLOOD_GROUPS = (
-        ('O+', 'O-positive'),
-        ('O-', 'O-negative'),
-        ('A+', 'A-positive'),
-        ('A-', 'A-negative'),
-        ('B+', 'B-positive'),
-        ('B-', 'B-negative'),
-        ('AB+', 'AB-positive'),
-        ('AB-', 'AB-negative'),
-        ('X', 'UNKNOWN')
+        ('O+', 'O+'),
+        ('O-', 'O-'),
+        ('A+', 'A+'),
+        ('A-', 'A-'),
+        ('B+', 'B+'),
+        ('B-', 'B-'),
+        ('AB+', 'AB+'),
+        ('AB-', 'AB-'),
+        ('X', 'Unknown')
     )
     GENDERS = (
-        ('male', 'MALE'),
-        ('female', 'FEMALE'),
-        ('others', 'OTHERS')
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('other', 'Other')
     )
     STATUS = (
-        ('found', 'FOUND'),
-        ('missing', 'MISSING'),
-        ('identified', 'IDENTIFIED')
+        ('found', 'Found'),
+        ('missing', 'Missing'),
+        ('identified', 'Identified')
     )
-    name = models.CharField(max_length=30,null=True)
+    name = models.CharField(max_length=30, blank=True)
     image = models.ImageField(upload_to='static/images/persons',
                              default='static/dish/images/person.jpg',
                              max_length = 500,
                              blank=True)
-    specific_characteristics = models.CharField(max_length=300, null=False)
-    location = models.CharField(max_length=300, null=True)
-    clothing = models.CharField(max_length=300, null=False)
-    age_estimate = models.IntegerField(null=False)
-    height = models.IntegerField(null=False)
-    alive = models.BooleanField(default=True, null=False)
-    status = models.CharField(max_length=20, choices=STATUS, null=False)
-    blood_group = models.CharField(max_length=2, choices=BLOOD_GROUPS, null=False)
-    gender = models.CharField(max_length=11, choices=GENDERS, null=False)
+    specific_characteristics = models.CharField(max_length=300)
+    location = models.CharField(max_length=300)
+    clothing = models.CharField(max_length=300)
+    age_estimate = models.IntegerField()
+    height = models.FloatField()
+    alive = models.BooleanField(default=True)
+    status = models.CharField(max_length=20, choices=STATUS)
+    blood_group = models.CharField(max_length=2, choices=BLOOD_GROUPS)
+    gender = models.CharField(max_length=11, choices=GENDERS)
     disaster = models.ForeignKey(Disaster, on_delete = models.CASCADE, default=False)

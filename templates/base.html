@@ -51,63 +51,7 @@
                         </div>
                     </div>
                     </div>
-                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-                    {% if user.is_authenticated %}
-                        {% if user.profile.avatar %}
-                            <li class="nav_item">
-                                <img src="/{{user.profile.avatar}}" style="float: left; border-radius: 100%; width: 50px; height: 50px;" />
-                            </li>
-                        {% endif %}
-                        <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                                <i class="ni ni-ui-04 d-lg-none"></i>
-                                <span class="nav-link-inner--text">Components</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-xl">
-                                <div class="dropdown-menu-inner">
-                                    <a href="https://demos.creative-tim.com/argon-design-system/docs/getting-started/overview.html" class="media d-flex align-items-center">
-                                    <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
-                                        <i class="ni ni-spaceship"></i>
-                                    </div>
-                                    <div class="media-body ml-3">
-                                        <h6 class="heading text-primary mb-md-1">Missing People</h6>
-                                    </div>
-                                    </a>
-                                    <a href="https://demos.creative-tim.com/argon-design-system/docs/foundation/colors.html" class="media d-flex align-items-center">
-                                    <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
-                                        <i class="ni ni-palette"></i>
-                                    </div>
-                                    <div class="media-body ml-3">
-                                        <h6 class="heading text-primary mb-md-1">Profile</h6>
-                                    </div>
-                                    </a>
-                                    <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="media d-flex align-items-center">
-                                    <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                                        <i class="ni ni-ui-04"></i>
-                                    </div>
-                                    <div class="media-body ml-3">
-                                        <h6 class="heading text-warning mb-md-1">Logout</h6>
-                                    </div>
-                                    </a>
-                                </div>
-                                </div>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}" role="button">
-                                <i class="ni ni-ui-04 d-lg-none"></i>
-                                <span class="nav-link-inner--text">Login</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signup' %}" role="button">
-                                <i class="ni ni-ui-04 d-lg-none"></i>
-                                <span class="nav-link-inner--text">Signup</span>
-                            </a>
-                        </li>
-                    {% endif %}
-                    </ul>
-                    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                    <!-- <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                     <li class="nav-item d-none d-lg-block ml-lg-4">
                     <form action="/search" method="GET" class="form-inline row text-align-center">
                         <div class="form-group col-8">
@@ -124,6 +68,62 @@
                         </div>
                     </form>
                     </li>
+                    </ul> -->
+                    <ul class="navbar-nav navbar-nav-hover align-items-sm-center ml-sm-auto">
+                            {% if user.is_authenticated %}
+                                {% if user.profile.avatar %}
+                                    <li class="nav_item">
+                                        <img src="/{{user.profile.avatar}}" style="float: left; border-radius: 100%; width: 50px; height: 50px;" />
+                                    </li>
+                                {% endif %}
+                                <li class="nav-item dropdown">
+                                        <a class="nav-link" data-toggle="dropdown" href="#" role="button">
+                                        <i class="ni ni-ui-04 d-lg-none"></i>
+                                        <span class="nav-link-inner--text" style="text-transform:uppercase">{{user.username}}</span>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-l">
+                                        <div class="dropdown-menu-inner">
+                                            <a href="{% url 'search' %}" class="media d-flex align-items-center">
+                                            <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                                                <i class="ni ni-spaceship"></i>
+                                            </div>
+                                            <div class="media-body ml-3">
+                                                <h6 class="heading text-primary mb-md-1">find missing people</h6>
+                                            </div>
+                                            </a>
+                                            <a href="#" class="media d-flex align-items-center">
+                                            <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                                                <i class="ni ni-palette"></i>
+                                            </div>
+                                            <div class="media-body ml-3">
+                                                <h6 class="heading text-primary mb-md-1">profile</h6>
+                                            </div>
+                                            </a>
+                                            <a href="{% url 'logout' %}" class="media d-flex align-items-center">
+                                            <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                                                <i class="ni ni-ui-04"></i>
+                                            </div>
+                                            <div class="media-body ml-3">
+                                                <h6 class="heading text-warning mb-md-1">logout</h6>
+                                            </div>
+                                            </a>
+                                        </div>
+                                        </div>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}" role="button">
+                                        <i class="ni ni-ui-04 d-lg-none"></i>
+                                        <span class="nav-link-inner--text">Login</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'signup' %}" role="button">
+                                        <i class="ni ni-ui-04 d-lg-none"></i>
+                                        <span class="nav-link-inner--text">Signup</span>
+                                    </a>
+                                </li>
+                            {% endif %}
                     </ul>
                 </div>
                 </div>

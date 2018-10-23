@@ -2,7 +2,7 @@ from django.http import HttpRequest
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from FindThem.forms import SignUpForm
+from FindThem.forms import SignUpForm, SearchForm
 from django.contrib.auth.models import User
 
 def home(request):
@@ -20,3 +20,15 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form, 'title': 'Signup'})
+
+def search(request):
+
+    if request.method == 'GET':
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            pass
+    else:
+        form = SearchForm()
+
+    return render(request, 'search.html', {'form': form, 'title': 'Search'})
+
