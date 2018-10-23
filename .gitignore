@@ -1,2 +1,6 @@
 #Virtual Environment
 venv
+#migrations
+migrations
+#vscode
+.vscode

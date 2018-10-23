@@ -17,7 +17,7 @@ class Disaster(models.Model):
                              max_length = 500,
                              blank=True)
     state = models.CharField(max_length=30, null=True)
-    description = models.Charfield(max_length=50, null=False)
+    description = models.CharField(max_length=50, null=True)
     type = models.CharField(max_length=2, choices=DISASTERS, null=False)
     date_started = models.DateField(null=False)
     #input_formats=["%B %Y"], 

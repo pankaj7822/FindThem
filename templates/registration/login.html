@@ -26,7 +26,7 @@
                   <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                       </div>
                       <input class="form-control" placeholder="Username" type="text" name="username" autofocus="" required="" id="id_username">
                     </div>
@@ -60,12 +60,12 @@
             </div>
             <div class="row mt-3">
               <div class="col-6">
-                <a href="#" class="text-light">
+                <a href="{% url 'password_reset' %}" class="text-light">
                   <small>Forgot password?</small>
                 </a>
               </div>
               <div class="col-6 text-right">
-                <a href="#" class="text-light">
+                <a href="{% url 'signup' %}" class="text-light">
                   <small>Create new account</small>
                 </a>
               </div>
