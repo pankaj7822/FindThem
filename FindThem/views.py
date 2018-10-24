@@ -23,10 +23,15 @@ def signup(request):
 
 def search(request):
 
-    if request.method == 'GET':
-        form = SearchForm(request.GET)
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
         if form.is_valid():
-            pass
+            print("fgfg")
+            result = "Gogo"
+            form = None
+            print(form)
+        else:
+            print(form.errors)
     else:
         form = SearchForm()
 
