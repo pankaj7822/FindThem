@@ -9,7 +9,7 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import Storage
 from django.utils.deconstruct import deconstructible
  
-from yourapp.utils import setting
+from storages.utils import setting
  
 try:
     import azure  # noqa
