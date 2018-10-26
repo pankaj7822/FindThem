@@ -16,7 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'FindThem',
-    'widget_tweaks'
+    'widget_tweaks',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -95,3 +96,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+DEFAULT_FILE_STORAGE = 'cloud-shell-storage-centralindia.csga079e4b9f5bax4e83x949.findthem'
+ 
+AZURE_ACCOUNT_NAME = "csga079e4b9f5bax4e83x949"
+AZURE_ACCOUNT_KEY = "AWgVo5M0HBoYXgw99SzNIl4FpIlmLvp/hhDVJsrK9jzom2mHwS8DD1b9UnYYYQ+KPVvneICJpiJgO9EoNeegZw=="
+AZURE_CONTAINER = "findthem"
+AZURE_STATIC_CONTAINER = "findthem"
+AZURE_SSL = True
+ 
+STATICFILES_STORAGE = "cloud-shell-storage-centralindia.csga079e4b9f5bax4e83x949.findthem"
+STATIC_URL = "https://csga079e4b9f5bax4e83x949.blob.core.windows.net/findthem/"
+COMPRESS_STORAGE = STATICFILES_STORAGE
+COMPRESS_ROOT = ''
