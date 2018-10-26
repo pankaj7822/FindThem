@@ -4,5 +4,8 @@ venv
 #vscode
 .vscode
 
+#Satic
+static/
+
 #pycache
 __pycache__/
