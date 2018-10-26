@@ -26,9 +26,11 @@ def search(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
-            result = "Gogo"
+            if form.status == "Missing" :
+                result = Person.objects.filter(age__gt=form.age-5, age__lt=form.age+5, gender=form.gender, blood_group = form.blood_group, height__gt = form.height*0.8, height__lt = form.height*1.2, disaster = form.disaster )
+            elif form.status == "Found":
+                form.save()
             form = None
-            print(form)
         else:
             print(form.errors)
     else:
@@ -36,4 +38,5 @@ def search(request):
         result = None
 
     return render(request, 'search.html', {'form': form, 'title': 'Search', 'result':result})
-
+            
+    
