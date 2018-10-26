@@ -5,7 +5,7 @@ venv
 .vscode
 
 #Satic
-static/
+/static/
 
 #pycache
 __pycache__/
