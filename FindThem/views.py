@@ -26,7 +26,6 @@ def search(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
-            print("fgfg")
             result = "Gogo"
             form = None
             print(form)
@@ -34,6 +33,7 @@ def search(request):
             print(form.errors)
     else:
         form = SearchForm()
+        result = None
 
-    return render(request, 'search.html', {'form': form, 'title': 'Search'})
+    return render(request, 'search.html', {'form': form, 'title': 'Search', 'result':result})
 
