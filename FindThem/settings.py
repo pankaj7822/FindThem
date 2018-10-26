@@ -53,9 +53,16 @@ WSGI_APPLICATION = 'FindThem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'findthem',
+        'USER': 'user@myserver',
+        'PASSWORD': '@zurep@$$#377',
+        'HOST': 'myserver.database.windows.net',
+        'PORT': '',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 13 for SQL Server',
+        },
+    },
 }
 
 AUTH_PASSWORD_VALIDATORS = [
