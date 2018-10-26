@@ -1,14 +1,8 @@
 #Virtual Environment
 venv
 
-#migrations
-migrations
-
 #vscode
 .vscode
 
 #pycache
-__pycache__
-
-#Databse
-db.sqlite3
+__pychache__/
